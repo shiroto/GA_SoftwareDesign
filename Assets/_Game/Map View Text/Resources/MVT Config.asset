@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6e2c37db62758e479930aba037d3dad, type: 3}
+  m_Name: MVT Config
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 6767036328093846440, guid: 7f5df1c4b1f69dd40b0e2b1330741911, type: 3}
+  tileToCharacter:
+  - character: 44
+    tile: 0
+  - character: 45
+    tile: 1
+  - character: 95
+    tile: 2
+  - character: 124
+    tile: 3
+  - character: 37
+    tile: 4
+  - character: 35
+    tile: 5
