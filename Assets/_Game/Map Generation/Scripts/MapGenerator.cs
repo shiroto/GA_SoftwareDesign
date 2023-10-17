@@ -7,10 +7,11 @@ using UnityEngine.Assertions;
 namespace MapGen {
 
     /// <summary>
-    /// Generate map.
+    /// Generate map
     /// </summary>
     public static class MapGenerator {
 
+        // Generate map
         public static IMap GenMap(MapGenConfig c) {
             Map map = new(c.MapWidth, c.MapHeight);
             GenerateRooms(c, map);
@@ -50,7 +51,7 @@ namespace MapGen {
                     {
                         break;
                     }
-                    Vector2Int nextTile;
+                        Vector2Int nextTile;
                     Vector2Int distance = end - current;
                     Vector2Int[] options = GetVectors(distance);
                     nextTile = current + GetDirection(m, wasW, options);
@@ -115,7 +116,8 @@ namespace MapGen {
             {
                 return v[0];
             }
-            if (wasW && (m.GetTile(v[0]) == Tiles.WALL_VER || m.GetTile(v[0]) == Tiles.WALL_HOR))
+            if 
+                (wasW && (m.GetTile(v[0]) == Tiles.WALL_VER || m.GetTile(v[0]) == Tiles.WALL_HOR))
             {
                 return v[1];
             }
@@ -138,6 +140,7 @@ namespace MapGen {
 
         private static Vector2Int[] GetVectors(Vector2Int distance) {
             Assert.IsTrue(distance != Vector2.zero);
+            // case when both are 0
             if (distance.x == 0 ^ distance.y == 0)
             {
                 Vector2 tmp = new Vector2(distance.x, distance.y).normalized;
@@ -145,7 +148,7 @@ namespace MapGen {
             }
             else
             {
-                int x = distance.x / Mathf.Abs(distance.x);
+                  int x = distance.x / Mathf.Abs(distance.x);
                 int y = distance.y / Mathf.Abs(distance.y);
                 return new Vector2Int[] { new(x, 0), new(0, y) };
             }
@@ -170,9 +173,9 @@ namespace MapGen {
                 return;
             }
             if (m.tiles[v.x, v.y] == Tiles.FLOOR || m.tiles[v.x, v.y] == Tiles.PATH)
-            {
-                h2.Remove(v);
-                h.Add(v);
+                {
+                    h2.Remove(v);
+                    h.Add(v);
                 Mark(m, h, h2, v + Vector2Int.up);
                 Mark(m, h, h2, v + Vector2Int.down);
                 Mark(m, h, h2, v + Vector2Int.left);
@@ -190,6 +193,7 @@ namespace MapGen {
             map.tiles[tile.x, tile.y] = Tiles.STAIRS;
         }
 
+        // Add walls
         private static void Walls(Map m) {
             for (int x = 0; x < m.tiles.GetLength(0); x++)
             {
@@ -198,10 +202,10 @@ namespace MapGen {
                     Vector2Int tile = new(x, y);
                     if (m.GetTile(tile) == Tiles.FLOOR)
                     {
-                        if (m.GetTile(tile + Vector2Int.up) == Tiles.NONE)
-                        {
-                            m.SetTile(tile + Vector2Int.up, Tiles.WALL_HOR);
-                        }
+                            if (m.GetTile(tile + Vector2Int.up) == Tiles.NONE)
+                            {
+                                m.SetTile(tile + Vector2Int.up, Tiles.WALL_HOR);
+                            }
                         if (m.GetTile(tile + Vector2Int.down) == Tiles.NONE)
                         {
                             m.SetTile(tile + Vector2Int.down, Tiles.WALL_HOR);
