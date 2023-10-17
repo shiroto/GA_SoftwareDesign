@@ -1,11 +1,8 @@
 {
-    "name": "Main",
-    "rootNamespace": "Main",
+    "name": "Enemies",
+    "rootNamespace": "Enemies",
     "references": [
-        "GUID:94c2f93c2137a7a43a30313ecccad4f2",
-        "GUID:b5b06d0e082717f4abb4bb6cad5ac44f",
-        "GUID:a175ffbdaa0609941b8d0dec3012206a",
-        "GUID:ee4567e639522734babef5f0af259f59"
+        "GUID:94c2f93c2137a7a43a30313ecccad4f2"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

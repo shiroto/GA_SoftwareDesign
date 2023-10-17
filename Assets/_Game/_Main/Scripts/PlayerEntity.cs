@@ -5,6 +5,9 @@ namespace Main {
 
     public class PlayerEntity : IEntity {
 
+        public void Update(IGameState gameState) {
+        }
+
         public char Appearance => '@';
 
         public Color Color => Color.yellow;

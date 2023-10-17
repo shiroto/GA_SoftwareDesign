@@ -19,8 +19,7 @@ namespace MVT {
         private Dictionary<Tiles, char> tileToCharacterDic;
 
         public static MapViewConfig GetInstance() {
-            if (instance == null)
-            {
+            if (instance == null) {
                 instance = Resources.Load<MapViewConfig>("MVT Config");
                 instance.tileToCharacterDic = instance.tileToCharacter.ToDictionary(ttc => ttc.tile, ttc => ttc.character);
             }

@@ -15,8 +15,7 @@ namespace MapGen {
         }
 
         public Tiles GetTile(Vector2Int tile) {
-            if (tile.x < 0 || tile.y < 0 || tile.x >= tiles.GetLength(0) || tile.y >= tiles.GetLength(1))
-            {
+            if (tile.x < 0 || tile.y < 0 || tile.x >= tiles.GetLength(0) || tile.y >= tiles.GetLength(1)) {
                 return Tiles.NONE;
             }
             return tiles[tile.x, tile.y];

@@ -28,8 +28,7 @@ public class MapGenTest {
     }
 
     private static void ExploreRoom(Tiles[,] tiles, int x, int y, bool[,] visited, Room room) {
-        if (x < 0 || x >= tiles.GetLength(0) || y < 0 || y >= tiles.GetLength(1) || visited[x, y] || tiles[x, y] != Tiles.FLOOR)
-        {
+        if (x < 0 || x >= tiles.GetLength(0) || y < 0 || y >= tiles.GetLength(1) || visited[x, y] || tiles[x, y] != Tiles.FLOOR) {
             return;
         }
 
@@ -51,12 +50,9 @@ public class MapGenTest {
         bool[,] visited = new bool[mapWidth, mapHeight];
 
         // Depth-First Search to find connected rooms
-        for (int x = 0; x < mapWidth; x++)
-        {
-            for (int y = 0; y < mapHeight; y++)
-            {
-                if (tiles[x, y] == Tiles.FLOOR && !visited[x, y])
-                {
+        for (int x = 0; x < mapWidth; x++) {
+            for (int y = 0; y < mapHeight; y++) {
+                if (tiles[x, y] == Tiles.FLOOR && !visited[x, y]) {
                     Room room = new Room();
                     ExploreRoom(tiles, x, y, visited, room);
                     rooms.Add(room);
