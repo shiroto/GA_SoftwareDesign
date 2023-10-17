@@ -603,7 +603,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '1. Inventory
+  m_text: '1. New Game
 
     2. Quit'
   m_isRightToLeft: 0
