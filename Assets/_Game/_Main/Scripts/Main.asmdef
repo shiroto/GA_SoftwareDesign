@@ -1,6 +1,6 @@
 {
     "name": "Main",
-    "rootNamespace": "",
+    "rootNamespace": "Main",
     "references": [
         "GUID:94c2f93c2137a7a43a30313ecccad4f2",
         "GUID:b5b06d0e082717f4abb4bb6cad5ac44f",

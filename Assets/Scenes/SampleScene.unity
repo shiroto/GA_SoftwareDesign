@@ -388,7 +388,7 @@ GameObject:
   - component: {fileID: 1875283424}
   - component: {fileID: 1875283425}
   m_Layer: 0
-  m_Name: Startup
+  m_Name: Game Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -428,6 +428,7 @@ MonoBehaviour:
   maxRoomSize: 6
   maxRoomCount: 6
   maxRoomGenerationAttempts: 8
+  updateInterval: 0.15
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
