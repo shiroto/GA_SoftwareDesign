@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Main {
 
@@ -24,6 +25,10 @@ namespace Main {
         private float updateInterval;
 
         private IMapView view;
+
+
+        private int level = 0;
+        public UnityEvent<string> updateLevelText;
 
         private IEnumerator AutoMove(KeyCode key) {
             while (Input.GetKey(key)) {
@@ -65,12 +70,18 @@ namespace Main {
             SetPlayerStartPosition();
             InstantiateEnemies();
             view.Init(map);
+
+            level++;
+            updateLevelText.Invoke("Level "+ level);
         }
 
         private void InstantiateEnemies() {
             for (int i = 0; i < 5; i++) {
                 Vector2Int position = GetEnemyStartPosition();
-                IEntity enemy = EnemyFactory.CreateBlobEnemy(position);
+
+                BlobEnemyFactory enemyFactory = new BlobEnemyFactory();
+
+                IEntity enemy = enemyFactory.CreateEnemy(position);
                 entities.Add(enemy);
             }
         }
@@ -127,5 +138,10 @@ namespace Main {
         public IEnumerable<IEntity> Entities => entities;
 
         public IMap Map => map;
+
+        public void resetLevelCount()
+        {
+            level = 0;
+        }
     }
 }

@@ -21,6 +21,8 @@ namespace MapGen {
             return map;
         }
 
+
+        //MECKER: better methid name
         private static void Connect(MapGenConfig c, Map m) {
             HashSet<Vector2Int> r = new();
             HashSet<Vector2Int> u = new();
@@ -59,6 +61,10 @@ namespace MapGen {
             }
         }
 
+
+        //MECKER: this function also draws rooms after they have been generated
+        //        68 is THE longest code line
+        //        
         private static void GenerateRooms(MapGenConfig config, Map map) {
             int roomCount = 0;
 
@@ -116,6 +122,8 @@ namespace MapGen {
             throw new Exception();
         }
 
+
+        //MECKER: better method name
         private static Vector2Int[] GetVectors(Vector2Int distance) {
              Assert.IsTrue(distance != Vector2.zero);
             // case when both are 0
@@ -140,6 +148,8 @@ namespace MapGen {
                 || reachable.Contains(tile + Vector2Int.left) || reachable.Contains(tile + Vector2Int.right);
         }
 
+
+        //MECKER: könnte auch todd heißen. better method name
         private static void Mark(Map m, HashSet<Vector2Int> h, HashSet<Vector2Int> h2, Vector2Int v) {
             if (v.x < 0 || v.y < 0 || v.x >= m.tiles.GetLength(0) || v.y >= m.tiles.GetLength(1)
                     || !h2.Contains(v)) {
@@ -166,6 +176,8 @@ namespace MapGen {
             map.tiles[tile.x, tile.y] = Tiles.STAIRS;
         }
 
+
+        //MECKER: function name should be comment
         // Add walls
         private static void Walls(Map m) {
             for (int x = 0; x < m.tiles.GetLength(0); x++) {
