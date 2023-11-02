@@ -24,6 +24,8 @@ namespace Main
         [SerializeField]
         private int levelID = 0;
 
+        private BlobFactory _blobFactory = new BlobFactory(); 
+
         [SerializeField]
         private int seed, width, height, minRoomSize, maxRoomSize, maxRoomCount, maxRoomGenerationAttempts;
 
@@ -112,7 +114,7 @@ namespace Main
             for (int i = 0; i < 5; i++)
             {
                 Vector2Int position = GetEnemyStartPosition();
-                IEntity enemy = EnemyFactory.CreateBlobEnemy(position);
+                IEntity enemy = _blobFactory.CreateBlobEnemy(position);
                 entities.Add(enemy);
             }
         }

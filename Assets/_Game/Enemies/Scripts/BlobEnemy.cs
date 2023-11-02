@@ -4,8 +4,8 @@ using Map;
 using System.Linq;
 using UnityEngine;
 
-namespace Enemies {
-
+namespace Enemies
+{
     internal class BlobEnemy : IEntity {
 
         private static readonly Vector2Int[] DIRECTIONS =
