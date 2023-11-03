@@ -3,18 +3,26 @@ using Entities;
 using Map;
 using MapGen;
 using MVT;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Main {
 
     internal class GameController : MonoBehaviour, IGameState {
         private MapGenConfig config;
+
         private List<IEntity> entities;
+
+        private int levelId;
+
         private IMap map;
+
         private Vector2Int movement;
+
         private PlayerEntity player;
 
         [SerializeField]
@@ -24,6 +32,13 @@ namespace Main {
         private float updateInterval;
 
         private IMapView view;
+
+        public event EventHandler<LevelChangedEventArgs> OnLevelChanged = delegate { };
+
+        public EnemyFactory EnemyFactory { get; set; }
+        public IEnumerable<IEntity> Entities => entities;
+
+        public IMap Map => map;
 
         private IEnumerator AutoMove(KeyCode key) {
             while (Input.GetKey(key)) {
@@ -59,6 +74,8 @@ namespace Main {
         }
 
         private void InitNextLevel() {
+            levelId++;
+            OnLevelChanged(this, new(levelId));
             map = MapGenerator.GenMap(config);
             entities.Clear();
             entities.Add(player);
@@ -70,7 +87,7 @@ namespace Main {
         private void InstantiateEnemies() {
             for (int i = 0; i < 5; i++) {
                 Vector2Int position = GetEnemyStartPosition();
-                IEntity enemy = EnemyFactory.CreateBlobEnemy(position);
+                IEntity enemy = EnemyFactory.CreateEnemy(position);
                 entities.Add(enemy);
             }
         }
@@ -123,9 +140,5 @@ namespace Main {
                 StartCoroutine(AutoMove(KeyCode.RightArrow));
             }
         }
-
-        public IEnumerable<IEntity> Entities => entities;
-
-        public IMap Map => map;
     }
 }

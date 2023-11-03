@@ -3,10 +3,8 @@ using UnityEngine;
 
 namespace Enemies {
 
-    public static class EnemyFactory {
+    public abstract class EnemyFactory {
 
-        public static IEntity CreateBlobEnemy(Vector2Int position) {
-            return new BlobEnemy(position);
-        }
+        public abstract IEntity CreateEnemy(Vector2Int position);
     }
 }

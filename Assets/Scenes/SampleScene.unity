@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 465435052}
   - component: {fileID: 465435054}
   - component: {fileID: 465435053}
+  - component: {fileID: 465435055}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -257,6 +258,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 465435051}
   m_CullTransparentMesh: 1
+--- !u!114 &465435055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465435051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc01356d90a63bb4181f7411ae38c7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 1875283425}
+  label: {fileID: 465435053}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -760,6 +775,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1875283424}
   - component: {fileID: 1875283425}
+  - component: {fileID: 1875283426}
   m_Layer: 0
   m_Name: Game Controller
   m_TagString: Untagged
@@ -802,6 +818,19 @@ MonoBehaviour:
   maxRoomCount: 6
   maxRoomGenerationAttempts: 8
   updateInterval: 0.15
+--- !u!114 &1875283426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875283423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cc3b3a3b7ae5d44eabcd88b3e30cec2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameController: {fileID: 1875283425}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
