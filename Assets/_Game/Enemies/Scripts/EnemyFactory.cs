@@ -12,6 +12,8 @@ namespace Enemies {
     {
         public override IEntity CreateEnemy(Vector2Int position)
         {
+            
+
             IEntity newEnemy = new BlobEnemy(position);
 
             return newEnemy;

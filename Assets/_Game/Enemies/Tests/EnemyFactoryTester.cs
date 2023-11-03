@@ -1,17 +1,17 @@
-﻿using Entities;
+﻿using UnityEngine;
+using Enemies;
+using Entities;
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
+
 
 namespace Enemies {
 
-    public class EnemyFactoryTester : MonoBehaviour {
+    public class EnemyFactoryTester {
 
-        public void Start()
-        {
-            print("enemy factory test passed = " + doTest());
-        }
-
-
-        public bool doTest()
+        [Test]
+        public void doTest()
         {
             bool typeCorrect = false;
             bool positionCorrect = false;
@@ -25,7 +25,7 @@ namespace Enemies {
             if(testEnemy == null)
             {
                 Debug.LogError("no enemy was generated");
-                return false;
+                Assert.Fail();
             }
 
             if(testEnemy is BlobEnemy)
@@ -35,6 +35,7 @@ namespace Enemies {
             else
             {
                 Debug.LogError("wrong enemy type was generated");
+                Assert.Fail();
             }
 
             if(testEnemy.Position == randomPos)
@@ -44,9 +45,11 @@ namespace Enemies {
             else
             {
                 Debug.LogError("position of enemy was not assiged correctly");
+                Assert.Fail();
             }
 
-            return (typeCorrect && positionCorrect);
+            Assert.IsTrue(positionCorrect);
+            Assert.IsTrue(typeCorrect);
         }
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Enemies {
 
-    internal class BlobEnemy : IEntity {
+    public class BlobEnemy : IEntity {
 
         private static readonly Vector2Int[] DIRECTIONS =
             new Vector2Int[] { Vector2Int.up, Vector2Int.down, Vector2Int.left, Vector2Int.right };
