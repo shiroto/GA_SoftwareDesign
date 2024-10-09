@@ -9,7 +9,7 @@ using System.Linq;
 using UnityEngine;
 
 namespace Main {
-
+        
     internal class GameController : MonoBehaviour, IGameState {
         private MapGenConfig config;
         private List<IEntity> entities;
