@@ -1,4 +1,4 @@
-using Entities;
+﻿using Entities;
 using Main;
 using Map;
 using System.Linq;
@@ -6,17 +6,17 @@ using UnityEngine;
 
 namespace Enemies
 {
-    internal class BlobEnemy : IEnemy
+    internal class XEnemy : IEnemy
     {
         private static readonly Vector2Int[] DIRECTIONS =
             new Vector2Int[] { Vector2Int.up, Vector2Int.down, Vector2Int.left, Vector2Int.right };
 
-        public BlobEnemy(Vector2Int position)
+        public XEnemy(Vector2Int position)
         {
             Position = position;
         }
 
-        public char Appearance => 'o';
+        public char Appearance => 'x';
 
         public Color Color => Color.red;
 

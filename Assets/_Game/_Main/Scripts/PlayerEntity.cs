@@ -1,13 +1,10 @@
 using Entities;
 using UnityEngine;
 
-namespace Main {
-
-    public class PlayerEntity : IEntity {
-
-        public void Update(IGameState gameState) {
-        }
-
+namespace Main
+{
+    public class PlayerEntity : IEntity
+    {
         public char Appearance => '@';
 
         public Color Color => Color.yellow;

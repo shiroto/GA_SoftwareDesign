@@ -11,7 +11,7 @@ public class MapGenTest {
         MapGenConfig config = new(
             mapHeight: 20, mapWidth: 24, minRoomSize: 2, maxRoomSize: 4,
             maxRoomCount: 4, maxRoomGenerationAttempts: 7, random: new(0));
-        IMap map = MapGenerator.GenMap(config);
+        IMap map = MapGenerator.GenerateMap(config);
         Assert.AreEqual(24, map.GetTiles().GetLength(0));
         Assert.AreEqual(20, map.GetTiles().GetLength(1));
     }
@@ -21,7 +21,7 @@ public class MapGenTest {
         MapGenConfig config = new(
             mapHeight: 64, mapWidth: 64, minRoomSize: 2, maxRoomSize: 4,
             maxRoomCount: 10, maxRoomGenerationAttempts: 100, random: new(123));
-        IMap map = MapGenerator.GenMap(config);
+        IMap map = MapGenerator.GenerateMap(config);
         List<Room> rooms = GetRooms(map);
         rooms.ForEach(r => Assert.IsTrue(r.Coordinates.Count >= 4));
         rooms.ForEach(r => Assert.IsTrue(r.Coordinates.Count <= 16));

@@ -1,12 +1,9 @@
-using Main;
 using UnityEngine;
 
-namespace Entities {
-
-    public interface IEntity {
-
-        void Update(IGameState gameState);
-
+namespace Entities
+{
+    public interface IEntity
+    {
         char Appearance { get; }
 
         Color Color { get; }
